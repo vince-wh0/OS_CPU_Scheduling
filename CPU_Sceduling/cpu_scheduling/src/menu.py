@@ -12,3 +12,4 @@ def print_menu():
     print("[4] View Average Waiting Time")
     print("[5] Turnaround Time")
     print("[6] Exit")
+    
