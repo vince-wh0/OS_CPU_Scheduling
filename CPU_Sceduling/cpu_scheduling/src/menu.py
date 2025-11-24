@@ -1,9 +1,11 @@
+# Function to print a boxed title
 def box_title(title: str) -> None:
     line = "═" * (len(title) + 8)
     print(f"╔{line}╗")
     print(f"║    {title}    ║")
     print(f"╚{line}╝")
 
+# Function to print the main menu
 class Process: 
     def __init__(self, pid: int, burst_time: int, arrival_time: int):
         self.pid = pid
