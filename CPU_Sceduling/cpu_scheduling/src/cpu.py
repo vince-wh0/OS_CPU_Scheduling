@@ -25,7 +25,12 @@ def enter_process_details():
     clearscr()
     global processes
     box_title("How many process are you entering?")
-    n = int(input("Enter here: "))
+    while True:
+        try:
+            n = int(input("Enter here: "))
+            break 
+        except ValueError:
+            print("Invalid input. Please enter a whole integer number.")
     
     # Get the starting index for new processes
     starting_index = len(processes)
@@ -39,7 +44,13 @@ def enter_process_details():
         # If not the first process, set arrival time accordingly
         else:
             arrival = starting_index + i
-        burst = int(input("Enter Burst Time: "))
+
+        while True:
+            try:
+                burst = int(input("Enter Burst Time: "))
+                break
+            except ValueError:
+                print("Invalid input. Please enter a whole integer number.")
         processes.append(Process(f"P{starting_index + i + 1}", arrival, burst))
         
     print("\nProcess added successfully!")
