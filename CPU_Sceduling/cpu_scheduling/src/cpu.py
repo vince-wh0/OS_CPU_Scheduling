@@ -11,6 +11,7 @@ class Process:
         self.waiting = 0
         self.turnaround = 0
 
+# Global list to hold all processes
 processes = []
 
 # Clear Screen Function
@@ -32,7 +33,12 @@ def enter_process_details():
     # Input process details
     for i in range(n):
         box_title(f"Process {starting_index + i + 1} Details")
-        arrival = int(input("Enter Arrival Time: "))
+        # Determine arrival time
+        if starting_index == 0:
+            arrival = i 
+        # If not the first process, set arrival time accordingly
+        else:
+            arrival = starting_index + i
         burst = int(input("Enter Burst Time: "))
         processes.append(Process(f"P{starting_index + i + 1}", arrival, burst))
         
@@ -48,12 +54,15 @@ def view_process_details():
         input("Press Enter...")
         return
     
+    # Run scheduling to update process details
+    sjf_non_preemptive()
+    
     # Display process details
     box_title("Process Details")
-    print("PID\tArrival\tBurst")
+    print("PID\tArrival\tBurst\tTurnaround")
     for p in processes:
-        print(f"{p.pid}\t{p.arrival}\t{p.burst}")
-        print("-" * 25)
+        print(f"{p.pid}\t{p.arrival}\t{p.burst}\t{p.turnaround}")
+        print("-" * 40)
     
     print("\nSuccessfully displayed process details!")
     input("Press Enter...")
