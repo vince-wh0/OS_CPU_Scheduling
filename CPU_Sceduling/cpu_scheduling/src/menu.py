@@ -50,6 +50,7 @@ def view_process_details():
 #def view_turnaround_time():
 
 def print_menu():
+<<<<<<< Updated upstream
     while True:
         box_title("CPU Scheduling for SJF (Pre-emptive)")
         print("[1] Enter Process Details")
@@ -58,6 +59,14 @@ def print_menu():
         print("[4] View Average Waiting Time")
         print("[5] Turnaround Time")
         print("[6] Exit")
+=======
+    box_title("CPU Scheduling for SJF (Non-preemptive)")
+    print("[1] Enter Process Details")
+    print("[2] View Process Details")
+    print("[3] View Gantt Chart")
+    print("[4] View Average Waiting Time")
+    print("[5] Exit")
+>>>>>>> Stashed changes
     
         choice = input("Enter your choice (1-6): ") 
 

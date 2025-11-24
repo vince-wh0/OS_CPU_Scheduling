@@ -1,4 +1,4 @@
-from cpu import clearscr, enter_process_details, view_process_details, sjf_non_preemptive, view_chart, view_avg_wait, view_turnaround
+from cpu import clearscr, enter_process_details, view_process_details, sjf_non_preemptive, view_chart, view_avg_wait
 from menu import print_menu
 
 def main():
@@ -18,8 +18,6 @@ def main():
         elif choice == "4":
             view_avg_wait()
         elif choice == "5":
-            view_turnaround()
-        elif choice == "6":
             print("Exiting Program...")
             break
 

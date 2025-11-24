@@ -165,17 +165,5 @@ def view_avg_wait():
     print(f"\nAverage Waiting Time = {total/len(processes):.2f}")
     input("\nPress Enter...")
 
-# Function to view Turnaround Time    
-def view_turnaround():
-    clearscr()
-    sjf_non_preemptive()
-    box_title("Turnaround Times")
-    print("PID\tTAT")
-    for p in processes:
-        print(f"{p.pid}\t{p.turnaround}")
-        print("-" * 15)
-        
-    input("\nPress Enter...")
-
 
         
