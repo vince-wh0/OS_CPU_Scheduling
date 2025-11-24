@@ -1,4 +1,5 @@
 import os
+from menu import box_title
 # Process Class to hold process details
 class Process:
     def __init__(self, pid, arrival, burst):
@@ -22,14 +23,15 @@ def clearscr():
 def enter_process_details():
     clearscr()
     global processes
-    n = int(input("\nHow many process are you entering? "))
+    box_title("How many process are you entering?")
+    n = int(input("Enter here: "))
     
     # Get the starting index for new processes
     starting_index = len(processes)
     
     # Input process details
     for i in range(n):
-        print(f"\nProcess {starting_index + i + 1} Details")
+        box_title(f"Process {starting_index + i + 1} Details")
         arrival = int(input("Enter Arrival Time: "))
         burst = int(input("Enter Burst Time: "))
         processes.append(Process(f"P{starting_index + i + 1}", arrival, burst))
@@ -47,11 +49,11 @@ def view_process_details():
         return
     
     # Display process details
-    print("\nProcess Details")
+    box_title("Process Details")
     print("PID\tArrival\tBurst")
     for p in processes:
         print(f"{p.pid}\t{p.arrival}\t{p.burst}")
-        print("-" * 30)
+        print("-" * 25)
     
     print("\nSuccessfully displayed process details!")
     input("Press Enter...")
@@ -114,7 +116,7 @@ def view_chart(timeline):
         return
 
     # Display Gantt Chart
-    print("\nGANTT CHART\n")
+    box_title("Gantt Chart")
 
     # TOP borders
     for p, s, e in timeline:
@@ -150,6 +152,7 @@ def view_avg_wait():
     sjf_non_preemptive()
     # Calculate and display Average Waiting Time
     total = sum(p.waiting for p in processes)
+    box_title("Average Waiting Time")
     print(f"\nAverage Waiting Time = {total/len(processes):.2f}")
     input("\nPress Enter...")
 
@@ -157,7 +160,7 @@ def view_avg_wait():
 def view_turnaround():
     clearscr()
     sjf_non_preemptive()
-    print("\nTurnaround Times")
+    box_title("Turnaround Times")
     print("PID\tTAT")
     for p in processes:
         print(f"{p.pid}\t{p.turnaround}")
