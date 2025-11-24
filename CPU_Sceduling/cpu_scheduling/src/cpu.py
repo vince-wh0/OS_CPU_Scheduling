@@ -80,7 +80,6 @@ def view_process_details():
 
 # SJF Non-Preemptive Scheduling Algorithm
 def sjf_non_preemptive():
-    clearscr()
     if not processes:
         print("\nNo processes to schedule. Please enter process details first.")
         input("Press Enter...")
@@ -175,18 +174,4 @@ def view_avg_wait():
     box_title("Average Waiting Time")
     print(f"\nAverage Waiting Time = {total/len(processes):.2f}")
     input("\nPress Enter...")
-
-# Function to view Turnaround Time    
-def view_turnaround():
-    clearscr()
-    sjf_non_preemptive()
-    box_title("Turnaround Times")
-    print("PID\tTAT")
-    for p in processes:
-        print(f"{p.pid}\t{p.turnaround}")
-        print("-" * 15)
-        
-    input("\nPress Enter...")
-
-
         
