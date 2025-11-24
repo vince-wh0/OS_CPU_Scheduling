@@ -3,6 +3,7 @@ from menu import print_menu
 
 def main():
     while True:
+        clearscr()
         print_menu()
         
         choice = input("\nEnter choice: ")
@@ -21,3 +22,6 @@ def main():
         elif choice == "6":
             print("Exiting Program...")
             break
+
+if __name__ == "__main__":
+    main()

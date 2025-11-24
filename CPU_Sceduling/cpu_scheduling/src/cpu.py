@@ -17,17 +17,22 @@ def clearscr():
     else: os.system('clear')
 
 def enter_process_details():
+    clearscr()
     global processes
     processes = []
     n = int(input("\nHow many process are you entering? "))
     
     for i in range(n):
-        print(f"\nProcess {i + 1}")
+        print(f"\nProcess {i + 1} Details")
         arrival = int(input("Enter Arrival Time: "))
         burst = int(input("Enter Burst Time: "))
         processes.append(Process(f"P{i + 1}", arrival, burst))
         
+    print("\nProcess added successfully!")
+    input("Press Enter...")
+        
 def view_process_details():
+    clearscr()
     if not processes:
         print("\nNo process details available. Please enter process details first.")
         input("Press Enter...")
@@ -38,8 +43,12 @@ def view_process_details():
     for p in processes:
         print(f"{p.pid}\t{p.arrival}\t{p.burst}")
         print("-" * 30)
+    
+    print("\nSuccessfully displayed process details!")
+    input("Press Enter...")
 
 def sjf_non_preemptive():
+    clearscr()
     if not processes:
         print("\nNo processes to schedule. Please enter process details first.")
         input("Press Enter...")
@@ -78,32 +87,35 @@ def sjf_non_preemptive():
     return timeline
 
 def view_chart(timeline):
+    clearscr()
     if not timeline:
-        timeline = sjf_non_preemptive()
-        if not timeline:
-            print("\nNo process to chart. Please enter process details.")
-            input("Press Enter...")
-            return
+        print("\nNo process to chart. Please enter process details.")
+        input("Press Enter...")
+        return
     
     print("\nGantt Chart SJF (Non-Preemptive)")
     for p, s, e in timeline:
         print(f"| {p} ({s}→{e}) ", end="")
     print("|")
-    
+    input("\nPress Enter...")
 
 def view_avg_wait():
+    clearscr()
     sjf_non_preemptive()
     total = sum(p.waiting for p in processes)
     print(f"\nAverage Waiting Time = {total/len(processes):.2f}")
+    input("\nPress Enter...")
     
 def view_turnaround():
+    clearscr()
     sjf_non_preemptive()
     print("\nTurnaround Times")
     print("PID\tTAT")
     for p in processes:
         print(f"{p.pid}\t{p.turnaround}")
+        print("-" * 20)
         
+    input("\nPress Enter...")
 
-    
+
         
-               
