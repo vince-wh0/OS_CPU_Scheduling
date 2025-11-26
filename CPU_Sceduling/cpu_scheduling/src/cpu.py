@@ -55,6 +55,7 @@ def enter_process_details():
         
     print("\nProcess added successfully!")
     input("Press Enter...")
+    return processes
 
 # Function to view process details        
 def view_process_details():
@@ -80,10 +81,6 @@ def view_process_details():
 
 # SJF Non-Preemptive Scheduling Algorithm
 def sjf_non_preemptive():
-    if not processes:
-        print("\nNo processes to schedule. Please enter process details first.")
-        input("Press Enter...")
-        return []
     
     # Sort processes by arrival time
     procs = sorted(processes, key=lambda x: x.arrival)
@@ -169,6 +166,10 @@ def view_chart(timeline):
 def view_avg_wait():
     clearscr()
     sjf_non_preemptive()
+    if not processes:
+        print("\nNo process to compute. Please enter process details.")
+        input("Press Enter...")
+        return
     # Calculate and display Average Waiting Time
     total = sum(p.waiting for p in processes)
     box_title("Average Waiting Time")

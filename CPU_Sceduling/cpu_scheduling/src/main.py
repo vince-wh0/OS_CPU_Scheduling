@@ -20,6 +20,9 @@ def main():
         elif choice == "5":
             print("Exiting Program...")
             break
+        else:
+            print("\nInvalid choice. Please try again.")
+            input("Press Enter...")
 
 if __name__ == "__main__":
     main()
